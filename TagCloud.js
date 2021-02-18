@@ -161,6 +161,12 @@ Ext.define('Ext.TagCloud', {
 		
 		this.fireEvent('tagselect', this, this.getDataSource().getAt(index), index);
 		
+		//create event object if not exists
+		if( Ext.isEmpty( Ext.EventObject ) === true ){
+			
+			Ext.EventObject = new Ext.EventObjectImpl(e);
+		}//if..
+		
 		// Prevent the link href from being followed
 		Ext.EventObject.stopEvent(e);
 	},
